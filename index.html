@@ -1,0 +1,83 @@
+`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code-Quiz</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <a href="" id = "Not sure yet">View Highscores</a>
+        <div class="counter">
+            <span>
+                0
+            </span>
+        </div>
+    </header>
+    <main>
+        <div id="start">
+            <section>
+                    <h1 class="header">Coding Quiz Challenge</h1>
+                    <p class="paragraph">Try to answer the following code-related questions within the following time limit.  Keep in mind that incorrect answers will penalize your score time by 10 seconds.</p>
+                    <button id="startButton">Start Quiz</button>
+                    
+            </section>
+        </div>
+        <div id="quizPage">
+                <section id="Q1" class="question">
+                    <h1 class="header">Commonly used data types DO NOT include:</h1>
+                    <button class="incorrect answer">strings</button>
+                    <button class="correct answer">booleans</button>
+                    <button class="incorrect answer">alerts</button>
+                    <button class="incorrect answer">numbers</button>
+                </section>
+                <section id="Q2" class="question">
+                    <h1 class="header">The condition in an if else statement is enclosed with?</h1>
+                    <button class="incorrect answer">quotes</button>
+                    <button class="incorrect answer">curly brackets</button>
+                    <button class="correct answer">parentheses</button>
+                    <button class="incorrect answer">square brackets</button>
+                </section>
+                <section id="Q3" class="question">
+                    <h1 class="header">Arrays in JavaScript can be used to store:</h1>
+                    <button class="incorrect answer">numbers and strings</button>
+                    <button class="incorrect answer">other arrays</button>
+                    <button class="incorrect answer">booleans</button>
+                    <button class="correct answer">all of the above</button>
+                </section>
+                <section id="Q4" class="question">
+                    <h1 class="header">String values must be enclosed within ______ when being assigned to variables.</h1>
+                    <button class="incorrect answer">commas</button>
+                    <button class="correct answer">curly brackets</button>
+                    <button class="incorrect answer">quotes</button>
+                    <button class="incorrect answer">parentheses</button>
+                </section>
+                <section id="Q5" class="question">
+                    <h1 class="header">A very useful tool used during development and debugging for printing content to the debugger is:</h1>
+                    <button class="incorrect answer">JavaScript</button>
+                    <button class="incorrect answer">terminal/bash</button>
+                    <button class="correct answer">for loops</button>
+                    <button class="incorrect answer">console.log</button>
+                </section>
+        </div>
+        <div id="highscore">
+            <section>
+                <h1 class="header">Save your highscores</h1>
+                <p class="paragraph"></p>
+                <p class="initials"></p>
+                <button class="saveBtn">Save</button>
+            </section>
+            <section id="tblHighscore">
+                <h1>Highscore</h1>
+                <!-- Table will be here -->
+                <button class="restartBtn">Go Back</button>
+                <button class="clear">Clear Highscores</button>
+            </section>            
+        </div>
+        <div id=""></div>
+    </main>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
