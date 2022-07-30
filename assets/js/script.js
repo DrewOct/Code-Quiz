@@ -4,15 +4,13 @@ var start = document.querySelector("#start");
 var highScore = document.querySelector("#highScore");
 // return an array of questions
 var questions = document.querySelectorAll(".question");
-var qNumber = -1;
+var qNumber = 0;
 
 quizPage.style.display = "none";
 highScore.style.display = "none";
 
 // nextQuestion execute the hide and reveal animations
 function nextQuestion() {
-  // increment qNumber by 1
-  qNumber++;
   questions[qNumber].style.display = "block";
 
   var question = questions[qNumber];
@@ -29,23 +27,38 @@ function nextQuestion() {
 
 // progression when answer incorrect
 function incorrectAnswer() {
-  /// handle wrong answer
+  /// handle incorrect answer
   console.log("incorrect");
   questions[qNumber].style.display = "none";
 
-  // move on to next question
-  nextQuestion();
+  // increment qNumber by 1
+  qNumber++;
+  // if question is not last question, call nextQuestion
+  if (qNumber < questions.length) {
+    nextQuestion();
+    // if last question, give player option to save score
+  } else {
+    saveScore();
+  }
 }
 
 // move player to next question when answer correct
 function correctAnswer() {
-  ///check answers
+  ///handle correct answers
   console.log("correct");
   questions[qNumber].style.display = "none";
 
-  // move on to next question
-  nextQuestion();
+  // increment qNumber by 1
+  qNumber++;
+  // if question is not last question, call nextQuestion
+  if (qNumber < questions.length) {
+    nextQuestion();
+    // if last question, give player option to save score
+  } else {
+    saveScore();
+  }
 }
+
 function startQuiz() {
   quizPage.style.display = "block";
   for (var i = 1; i < questions.length; i++) {
@@ -55,6 +68,10 @@ function startQuiz() {
   nextQuestion();
 }
 
+function saveScore() {
+    console.log("Save a score")
+    highScore.style.display = "block";
+}
 startButton.addEventListener("click", startQuiz);
 // Create start card
 // EventHandler for button clicks
