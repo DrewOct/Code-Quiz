@@ -1,4 +1,4 @@
-`<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,9 +11,7 @@
     <header>
         <a href="" id = "Not sure yet">View Highscores</a>
         <div class="counter">
-            <span>
-                0
-            </span>
+            Time: <span id="timer">0</span>
         </div>
     </header>
     <main>
@@ -61,8 +59,16 @@
                     <button class="correct answer">for loops</button>
                     <button class="incorrect answer">console.log</button>
                 </section>
+                <div id="correct">
+                    <hr>
+                    Correct!
+                </div>
+                <div id="incorrect">
+                    <hr>
+                    Wrong!
+                </div>
         </div>
-        <div id="highscore">
+        <div id="highScore">
             <section>
                 <h1 class="header">All done</h1>
                 <p class="paragraph">Your final score is:</p>
@@ -70,7 +76,7 @@
                 <button class="saveBtn">Save</button>
             </section>
             <section id="tblHighscore">
-                <h1>Highscore</h1>
+                <h1>High Score</h1>
                 <!-- Table will be here -->
                 <button class="restartBtn">Go Back</button>
                 <button class="clear">Clear Highscores</button>
