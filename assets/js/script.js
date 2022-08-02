@@ -6,6 +6,9 @@ var questions = document.querySelectorAll(".question");
 var highScore = document.querySelector("#highScore");
 var saveBtn = document.querySelector("#saveBtn");
 var restartBtn = document.querySelector("#restartBtn");
+var highScoreTable = document.querySelector("#tblHighScore")
+var clearBtn = document.querySelector("#clear")
+// create an index for the questions
 var qNumber = 0;
 var seconds = 75;
 var score = 0;
@@ -31,18 +34,21 @@ quizPage.style.display = "none";
 highScore.style.display = "none";
 document.querySelector("#correct").style.display = "none";
 document.querySelector("#incorrect").style.display = "none";
+tblHighScore.style.display = "none";
+
 // startquiz page begin
 function startQuiz() {
   seconds = 75;
   isGameRunning = true;
   quizPage.style.display = "block";
+  qNumber = 0;
+  score =0;
   for (var i = 1; i < questions.length; i++) {
     questions[i].style.display = "none";
   }
   start.style.display = "none";
   nextQuestion();
 }
-
 startBtn.addEventListener("click", startQuiz);
 
 // nextQuestion execute the hide and reveal animations
@@ -87,7 +93,7 @@ function correctAnswer() {
   questions[qNumber].style.display = "none";
   document.querySelector("#correct").style.display = "block";
   document.querySelector("#incorrect").style.display = "none";
-
+  score++;
   // increment qNumber by 1
   qNumber++;
   // if question is not last question, call nextQuestion
@@ -106,8 +112,8 @@ function highScorePage() {
   quizPage.style.display = "none";
   document.querySelector("#correct").style.display = "none";
   document.querySelector("#incorrect").style.display = "none";
+  document.querySelector("#score").textContent = score;
 }
-startBtn.addEventListener("click", startQuiz);
 
 function timer() {
   if (isGameRunning) {
@@ -136,19 +142,50 @@ function saveScore() {
     leaderBoard.push(entry);
     leaderBoard.sort(compareScores);
     localStorage.setItem("leaderBoard", JSON.stringify(leaderBoard));
+    initialsTextBox.value = "";
+    highScoreTablePage();
   }
 }
+
 saveBtn.addEventListener("click", saveScore);
 function compareScores(a, b) {
   return b.score - a.score;
 }
 
 function restartBtnClicked() {
-    console.log("Go Back Button Clicked!")
+  console.log("Go Back Button Clicked!");
 }
 
 // window.onload=function() {
 //     var restartBtn = document.getElementsByClassName("restartBtn");
-    
+
 // }
-restartBtn.addEventListener("click", startQuiz);
+restartBtn.addEventListener("click", returnToBeginning);
+
+function clearFeedback() {};
+
+function highScoreTablePage() {
+    highScore.style.display="none";
+    highScoreTable.style.display="block";
+    var table = document.querySelector("#scoreList");
+    table.innerHTML = "";
+    for (var i = 0; i < leaderBoard.length; i++) {
+        var entry = document.createElement("li");
+        entry.textContent = leaderBoard[i].initials + ":" + leaderBoard[i].score;
+        table.append(entry);
+    }
+}
+
+function returnToBeginning() {
+    tblHighScore.style.display = "none";
+    start.style.display = "block";
+}
+
+function clearHighScores() {
+    var table = document.querySelector("#scoreList");
+    table.innerHTML = "";
+    leaderBoard = [];
+    localStorage.setItem("leaderBoard", leaderBoard)
+}
+
+clearBtn.addEventListener("click", clearHighScores);

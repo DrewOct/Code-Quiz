@@ -1,5 +1,12 @@
 /* Header styles begin */
+header {
+    display: grid;
+    grid-template-columns: auto auto;
+}
 
+.counter {
+    text-align: right;
+}
 /* styles for start page begin */
 #start {
   margin: auto;
@@ -13,6 +20,11 @@
   color: white;
 }
 /* Question and Answer styles begin */
+
+#quizPage {
+    /* padding: 50px; */
+}
+
 .question {
   margin: auto;
   width: 60%;
@@ -26,6 +38,10 @@
   color: white;
 }
 
+#feedback {
+    margin: auto;
+    width: 60%;
+}
 /* highscore section */
 #highScore {
     margin: auto;
@@ -39,12 +55,32 @@
   color: white;
 }
 
+#tblHighScore {
+    margin: auto;
+    width: 60%;
+    border: none;
+    padding: 10px;
+}
+
 .restartBtn {
   background-color: blueviolet;
   color: white;
 }
 
-.clear {
+#scoreList {
+    list-style-position:inside;
+    padding: 0px;
+}
+
+#scoreList > li:nth-of-type(odd) {
+    background-color: pink;
+}
+
+#scoreList > li:nth-of-type(even) {
+    background-color: grey;
+}
+
+#clear {
   background-color: blueviolet;
   color: white;
 }

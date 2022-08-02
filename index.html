@@ -1,88 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Code-Quiz</title>
-    <link rel="stylesheet" href="./assets/css/styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body>
     <header>
-        <a href="" id = "Not sure yet">View Highscores</a>
-        <div class="counter">
-            Time: <span id="timer">0</span>
-        </div>
+      <a href="" id="Not sure yet">View Highscores</a>
+      <div class="counter">Time: <span id="timer">0</span></div>
     </header>
     <main>
-        <div id="start">
-            <section>
-                    <h1 class="header">Coding Quiz Challenge</h1>
-                    <p class="paragraph">Try to answer the following code-related questions within the following time limit.  Keep in mind that incorrect answers will penalize your score time by 10 seconds.</p>
-                    <button id="startBtn">Start Quiz</button>                    
-            </section>
-        </div>
-        <div id="quizPage">
-                <section id="Q1" class="question">
-                    <h1 class="header">Commonly used data types DO NOT include:</h1>
-                    <button class="incorrect answer">strings</button>
-                    <button class="correct answer">booleans</button>
-                    <button class="incorrect answer">alerts</button>
-                    <button class="incorrect answer">numbers</button>
-                </section>
-                <section id="Q2" class="question">
-                    <h1 class="header">The condition in an if else statement is enclosed with?</h1>
-                    <button class="incorrect answer">quotes</button>
-                    <button class="incorrect answer">curly brackets</button>
-                    <button class="correct answer">parentheses</button>
-                    <button class="incorrect answer">square brackets</button>
-                </section>
-                <section id="Q3" class="question">
-                    <h1 class="header">Arrays in JavaScript can be used to store:</h1>
-                    <button class="incorrect answer">numbers and strings</button>
-                    <button class="incorrect answer">other arrays</button>
-                    <button class="incorrect answer">booleans</button>
-                    <button class="correct answer">all of the above</button>
-                </section>
-                <section id="Q4" class="question">
-                    <h1 class="header">String values must be enclosed within ______ when being assigned to variables.</h1>
-                    <button class="incorrect answer">commas</button>
-                    <button class="correct answer">curly brackets</button>
-                    <button class="incorrect answer">quotes</button>
-                    <button class="incorrect answer">parentheses</button>
-                </section>
-                <section id="Q5" class="question">
-                    <h1 class="header">A very useful tool used during development and debugging for printing content to the debugger is:</h1>
-                    <button class="incorrect answer">JavaScript</button>
-                    <button class="incorrect answer">terminal/bash</button>
-                    <button class="correct answer">for loops</button>
-                    <button class="incorrect answer">console.log</button>
-                </section>
-                <div id="correct">
-                    <hr>
-                    <em>Correct!</em>
-                </div>
-                <div id="incorrect">
-                    <hr>
-                    <em>Wrong!</em>
-                </div>
-        </div>
-        <div id="highScore">
-            <section>
-                <h1 class="header">All done</h1>
-                <p class="paragraph">Your final score is:</p>
-                <p class="initials">Enter Initials: <input type="text" id="initials"></p>
-                <button id="saveBtn">Save</button>
-            </section>
-            <section id="tblHighscore">
-                <h1>High Score</h1>
-                <!-- Table will be here -->
-                <button class="restartBtn" id="restartBtn">Go Back</button>
-                <button class="clear">Clear Highscores</button>
-            </section>            
-        </div>
-        <div id=""></div>
+      <div id="start">
+        <section>
+          <h1 class="header">Coding Quiz Challenge</h1>
+          <p class="paragraph">
+            Try to answer the following code-related questions within the
+            following time limit. Keep in mind that incorrect answers will
+            penalize your score time by 10 seconds.
+          </p>
+          <button id="startBtn">Start Quiz</button>
+        </section>
+      </div>
+      <div id="quizPage">
+        <section id="Q1" class="question">
+          <h1 class="header">Commonly used data types DO NOT include:</h1>
+          <button class="incorrect answer">strings</button>
+          <button class="correct answer">booleans</button>
+          <button class="incorrect answer">alerts</button>
+          <button class="incorrect answer">numbers</button>
+        </section>
+        <section id="Q2" class="question">
+          <h1 class="header">
+            The condition in an if else statement is enclosed with?
+          </h1>
+          <button class="incorrect answer">quotes</button>
+          <button class="incorrect answer">curly brackets</button>
+          <button class="correct answer">parentheses</button>
+          <button class="incorrect answer">square brackets</button>
+        </section>
+        <section id="Q3" class="question">
+          <h1 class="header">Arrays in JavaScript can be used to store:</h1>
+          <button class="incorrect answer">numbers and strings</button>
+          <button class="incorrect answer">other arrays</button>
+          <button class="incorrect answer">booleans</button>
+          <button class="correct answer">all of the above</button>
+        </section>
+        <section id="Q4" class="question">
+          <h1 class="header">
+            String values must be enclosed within ______ when being assigned to
+            variables.
+          </h1>
+          <button class="incorrect answer">commas</button>
+          <button class="correct answer">curly brackets</button>
+          <button class="incorrect answer">quotes</button>
+          <button class="incorrect answer">parentheses</button>
+        </section>
+        <section id="Q5" class="question">
+          <h1 class="header">
+            A very useful tool used during development and debugging for
+            printing content to the debugger is:
+          </h1>
+          <button class="incorrect answer">JavaScript</button>
+          <button class="incorrect answer">terminal/bash</button>
+          <button class="correct answer">for loops</button>
+          <button class="incorrect answer">console.log</button>
+        </section>
+        <section id="feedback">
+          <div id="correct">
+            <hr />
+            <em>Correct!</em>
+          </div>
+          <div id="incorrect">
+            <hr />
+            <em>Wrong!</em>
+          </div>
+        </section>
+      </div>
+      <div id="highScore">
+        <section>
+          <h1 class="header">All done</h1>
+          <p class="paragraph">Your final score is: <span id="score"></span></p>
+          <p class="initials">
+            Enter Initials: <input type="text" id="initials" />
+          </p>
+          <button id="saveBtn">Save</button>
+        </section>
+      </div>
+      <div id="tblHighScore">
+        <section id="">
+          <h1>High Score</h1>
+          <!-- Table will be here -->
+          <ol id="scoreList">
+
+          </ol>
+          <button class="restartBtn" id="restartBtn">Go Back</button>
+          <button id="clear">Clear Highscores</button>
+        </section>
+      </div>
     </main>
     <script src="./assets/js/script.js"></script>
-</body>
+  </body>
 </html>
