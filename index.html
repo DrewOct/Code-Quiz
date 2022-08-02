@@ -19,8 +19,7 @@
             <section>
                     <h1 class="header">Coding Quiz Challenge</h1>
                     <p class="paragraph">Try to answer the following code-related questions within the following time limit.  Keep in mind that incorrect answers will penalize your score time by 10 seconds.</p>
-                    <button id="startButton">Start Quiz</button>
-                    
+                    <button id="startBtn">Start Quiz</button>                    
             </section>
         </div>
         <div id="quizPage">
@@ -61,24 +60,24 @@
                 </section>
                 <div id="correct">
                     <hr>
-                    Correct!
+                    <em>Correct!</em>
                 </div>
                 <div id="incorrect">
                     <hr>
-                    Wrong!
+                    <em>Wrong!</em>
                 </div>
         </div>
         <div id="highScore">
             <section>
                 <h1 class="header">All done</h1>
                 <p class="paragraph">Your final score is:</p>
-                <p class="initials">Enter Initials:</p>
-                <button class="saveBtn">Save</button>
+                <p class="initials">Enter Initials: <input type="text" id="initials"></p>
+                <button id="saveBtn">Save</button>
             </section>
             <section id="tblHighscore">
                 <h1>High Score</h1>
                 <!-- Table will be here -->
-                <button class="restartBtn">Go Back</button>
+                <button class="restartBtn" id="restartBtn">Go Back</button>
                 <button class="clear">Clear Highscores</button>
             </section>            
         </div>

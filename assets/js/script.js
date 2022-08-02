@@ -1,17 +1,49 @@
-var startBtn = document.querySelector("#startButton");
-var quizPage = document.querySelector("#quizPage");
+// declare variables
+var startBtn = document.querySelector("#startBtn");
 var start = document.querySelector("#start");
-var highScore = document.querySelector("#highScore");
-// return an array of questions
+var quizPage = document.querySelector("#quizPage");
 var questions = document.querySelectorAll(".question");
+var highScore = document.querySelector("#highScore");
+var saveBtn = document.querySelector("#saveBtn");
+var restartBtn = document.querySelector("#restartBtn");
 var qNumber = 0;
 var seconds = 75;
+var score = 0;
 var isGameRunning = false;
+var leaderBoard = [];
+
+class LeaderboardEntry {
+  constructor(initials, score) {
+    this.initials = initials;
+    this.score = score;
+  }
+}
+class TimedLeaderBoardEntry extends LeaderboardEntry {
+  constructor(initials, score, timer) {
+    super(initials, score);
+    this.timer = timer;
+  }
+}
+var jimmysEntry = new TimedLeaderBoardEntry("JG", 100, 45);
+var bobsEntry = new TimedLeaderBoardEntry("BP", 50, 10);
 
 quizPage.style.display = "none";
 highScore.style.display = "none";
 document.querySelector("#correct").style.display = "none";
 document.querySelector("#incorrect").style.display = "none";
+// startquiz page begin
+function startQuiz() {
+  seconds = 75;
+  isGameRunning = true;
+  quizPage.style.display = "block";
+  for (var i = 1; i < questions.length; i++) {
+    questions[i].style.display = "none";
+  }
+  start.style.display = "none";
+  nextQuestion();
+}
+
+startBtn.addEventListener("click", startQuiz);
 
 // nextQuestion execute the hide and reveal animations
 function nextQuestion() {
@@ -45,7 +77,7 @@ function incorrectAnswer() {
     nextQuestion();
     // if last question, give player option to save score
   } else {
-    saveScore();
+    highScorePage();
   }
 }
 
@@ -63,31 +95,19 @@ function correctAnswer() {
     nextQuestion();
     // if last question, give player option to save score
   } else {
-    saveScore();
+    highScorePage();
   }
 }
 
-function startQuiz() {
-  seconds = 75;
-  isGameRunning = true;
-  quizPage.style.display = "block";
-  for (var i = 1; i < questions.length; i++) {
-    questions[i].style.display = "none";
-  }
-  start.style.display = "none";
-  nextQuestion();
-}
-
-function saveScore() {
+function highScorePage() {
   isGameRunning = false;
   console.log("Save a score");
   highScore.style.display = "block";
   quizPage.style.display = "none";
+  document.querySelector("#correct").style.display = "none";
+  document.querySelector("#incorrect").style.display = "none";
 }
-startButton.addEventListener("click", startQuiz);
-// Create start card
-// EventHandler for button clicks
-// Pagination for cards
+startBtn.addEventListener("click", startQuiz);
 
 function timer() {
   if (isGameRunning) {
@@ -95,8 +115,40 @@ function timer() {
     seconds--;
     console.log(seconds);
     if (seconds <= 0) {
-      saveScore();
+      highScorePage();
     }
   }
 }
 setInterval(timer, 1000);
+
+function saveScore() {
+  var initialsTextBox = document.querySelector("#initials");
+  if (
+    initialsTextBox.value &&
+    initialsTextBox.value.length > 0 &&
+    initialsTextBox.value.length <= 3
+  ) {
+    var entry = new TimedLeaderBoardEntry(
+      initialsTextBox.value,
+      score,
+      seconds
+    );
+    leaderBoard.push(entry);
+    leaderBoard.sort(compareScores);
+    localStorage.setItem("leaderBoard", JSON.stringify(leaderBoard));
+  }
+}
+saveBtn.addEventListener("click", saveScore);
+function compareScores(a, b) {
+  return b.score - a.score;
+}
+
+function restartBtnClicked() {
+    console.log("Go Back Button Clicked!")
+}
+
+// window.onload=function() {
+//     var restartBtn = document.getElementsByClassName("restartBtn");
+    
+// }
+restartBtn.addEventListener("click", startQuiz);

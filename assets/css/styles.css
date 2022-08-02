@@ -1,9 +1,50 @@
+/* Header styles begin */
+
+/* styles for start page begin */
 #start {
-    
+  margin: auto;
+  width: 60%;
+  border: none;
+  padding: 10px;
 }
 
-/* Header styles */
-/* Question and Answer styles */
+#startBtn {
+  background-color: blueviolet;
+  color: white;
+}
+/* Question and Answer styles begin */
+.question {
+  margin: auto;
+  width: 60%;
+  border: none;
+  padding: 10px;
+}
+
 .answer {
-    display: block;
+  display: block;
+  background-color: blueviolet;
+  color: white;
+}
+
+/* highscore section */
+#highScore {
+    margin: auto;
+    width: 60%;
+    border: none;
+    padding: 10px;  
+}
+
+#saveBtn {
+  background-color: blueviolet;
+  color: white;
+}
+
+.restartBtn {
+  background-color: blueviolet;
+  color: white;
+}
+
+.clear {
+  background-color: blueviolet;
+  color: white;
 }
